@@ -41,7 +41,12 @@ def get_registro_by_numero(db: Session, numero_solicitud: str):
 
 # Obtener todos los registros
 def get_registros_marca(db: Session, skip: int = 0, limit: int = 100):
-    return db.query(RegistroMarca).offset(skip).limit(limit).all()
+    try:
+        return db.query(RegistroMarca).offset(skip).limit(limit).all()
+    except Exception as e:
+        # opcional: loggear el error para debug
+        print(f"Error al consultar registros: {e}")
+        return []
 
 # Obtener registros por estado
 def get_registros_by_estado(db: Session, estado: EstadoRegistro, skip: int = 0, limit: int = 100):

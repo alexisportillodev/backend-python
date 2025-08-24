@@ -1,15 +1,15 @@
 from pydantic import BaseModel, EmailStr
 from datetime import datetime
 from typing import Optional
-from enum import Enum
+from enum import IntEnum
 
-class EstadoRegistro(str, Enum):
-    PENDIENTE = "pendiente"
-    EN_REVISION = "en_revision"
-    APROBADO = "aprobado"
-    RECHAZADO = "rechazado"
-    VIGENTE = "vigente"
-    VENCIDO = "vencido"
+class EstadoRegistro(IntEnum):
+    PENDIENTE = 1
+    EN_REVISION = 2
+    APROBADO = 3
+    RECHAZADO = 4
+    VIGENTE = 5
+    VENCIDO = 6
 
 # Esquema base para RegistroMarca
 class RegistroMarcaBase(BaseModel):

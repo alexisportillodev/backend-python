@@ -3,13 +3,13 @@ from sqlalchemy.sql import func
 from database import Base
 import enum
 
-class EstadoRegistro(enum.Enum):
-    PENDIENTE = "pendiente"
-    EN_REVISION = "en_revision"
-    APROBADO = "aprobado"
-    RECHAZADO = "rechazado"
-    VIGENTE = "vigente"
-    VENCIDO = "vencido"
+class EstadoRegistro(enum.IntEnum):
+    PENDIENTE = 1
+    EN_REVISION = 2
+    APROBADO = 3
+    RECHAZADO = 4
+    VIGENTE = 5
+    VENCIDO = 6
 
 class RegistroMarca(Base):
     __tablename__ = "registros_marca"
